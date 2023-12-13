@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.loc.newsapp.presentation.Dimension.MediumPadding2
 import com.loc.newsapp.presentation.Dimension.PageIndicatorWidth
+import com.loc.newsapp.presentation.OnBoardingEvent
 import com.loc.newsapp.presentation.common.NewsButton
 import com.loc.newsapp.presentation.common.NewsTextButton
 import com.loc.newsapp.presentation.onboarding.components.OnBoarding
@@ -30,7 +31,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -79,8 +82,9 @@ fun OnBoardingScreen() {
                 }
                 NewsButton(text = buttonState.value[1], onClick = {
                     scope.launch {
-                        if (pagerState.currentPage == 3) {
+                        if (pagerState.currentPage == 2) {
                             // TODO: Navigate to Home Screen
+                            event(OnBoardingEvent.SaveAppEntry)
                         } else {
                             pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
                         }
@@ -96,6 +100,6 @@ fun OnBoardingScreen() {
 @Composable
 fun OnBoardingPreview() {
     NewsAppTheme {
-        OnBoardingScreen()
+//        OnBoardingScreen()
     }
 }
