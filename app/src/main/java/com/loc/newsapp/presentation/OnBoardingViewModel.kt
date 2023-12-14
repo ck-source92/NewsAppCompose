@@ -20,7 +20,7 @@ class OnBoardingViewModel @Inject constructor(private val appEntryUsecase: AppEn
 
     private fun saveAppEntry() {
         viewModelScope.launch {
-            appEntryUsecase.saveAppEntry
+            appEntryUsecase.saveAppEntry()
         }
     }
 }

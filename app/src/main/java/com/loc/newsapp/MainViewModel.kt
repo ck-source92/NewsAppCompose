@@ -16,10 +16,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(appEntryUseCases: AppEntryUsecase) :
     ViewModel() {
-//
-//    private val _splashCondition = mutableStateOf(true)
-//    val splashCondition: State<Boolean> = _splashCondition
-
     var splashCondition by mutableStateOf(true)
         private set
 
@@ -28,10 +24,10 @@ class MainViewModel @Inject constructor(appEntryUseCases: AppEntryUsecase) :
 
     init {
         appEntryUseCases.readAppEntry().onEach { shouldStartFromHomeScreen ->
-            if (shouldStartFromHomeScreen) {
-                startDestination = Route.NewsNavigation.route
+            startDestination = if (shouldStartFromHomeScreen) {
+                Route.NewsNavigation.route
             } else {
-                startDestination = Route.AppStartNavigation.route
+                Route.AppStartNavigation.route
             }
             delay(300)
             splashCondition = false
