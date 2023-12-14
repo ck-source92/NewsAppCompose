@@ -18,7 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.loc.newsapp.presentation.Dimension.MediumPadding2
 import com.loc.newsapp.presentation.Dimension.PageIndicatorWidth
 import com.loc.newsapp.presentation.OnBoardingEvent
@@ -26,7 +25,6 @@ import com.loc.newsapp.presentation.common.NewsButton
 import com.loc.newsapp.presentation.common.NewsTextButton
 import com.loc.newsapp.presentation.onboarding.components.OnBoarding
 import com.loc.newsapp.presentation.onboarding.components.PageIndicator
-import com.loc.newsapp.ui.theme.NewsAppTheme
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -93,13 +91,5 @@ fun OnBoardingScreen(
             }
         }
         Spacer(modifier = Modifier.weight(0.5f))
-    }
-}
-
-@Preview
-@Composable
-fun OnBoardingPreview() {
-    NewsAppTheme {
-//        OnBoardingScreen()
     }
 }

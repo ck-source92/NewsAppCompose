@@ -1,5 +1,6 @@
 package com.loc.newsapp.di
 
+import android.app.Application
 import android.content.Context
 import com.loc.newsapp.data.LocalUserManagerImpl
 import com.loc.newsapp.domain.manager.LocalUserManager
@@ -19,8 +20,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalUserManager(@ApplicationContext appContext: Context): LocalUserManager =
-        LocalUserManagerImpl(appContext)
+    fun provideLocalUserManager(application: Application): LocalUserManager =
+        LocalUserManagerImpl(application)
 
     @Provides
     @Singleton
