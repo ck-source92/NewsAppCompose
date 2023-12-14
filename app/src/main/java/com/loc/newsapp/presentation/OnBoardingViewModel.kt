@@ -2,7 +2,7 @@ package com.loc.newsapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.loc.newsapp.domain.usecase.AppEntryUsecase
+import com.loc.newsapp.domain.usecase.app_entry.AppEntryUsecase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

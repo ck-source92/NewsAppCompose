@@ -1,16 +1,14 @@
 package com.loc.newsapp.di
 
 import android.app.Application
-import android.content.Context
 import com.loc.newsapp.data.LocalUserManagerImpl
 import com.loc.newsapp.domain.manager.LocalUserManager
-import com.loc.newsapp.domain.usecase.AppEntryUsecase
-import com.loc.newsapp.domain.usecase.ReadAppEntry
-import com.loc.newsapp.domain.usecase.SaveAppEntry
+import com.loc.newsapp.domain.usecase.app_entry.AppEntryUsecase
+import com.loc.newsapp.domain.usecase.app_entry.ReadAppEntry
+import com.loc.newsapp.domain.usecase.app_entry.SaveAppEntry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
