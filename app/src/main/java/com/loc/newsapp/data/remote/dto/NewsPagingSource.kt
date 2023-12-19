@@ -1,4 +1,4 @@
-package com.loc.newsapp.data.remote
+package com.loc.newsapp.data.remote.dto
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

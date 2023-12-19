@@ -1,6 +1,6 @@
 package com.loc.newsapp.di
 
-import com.loc.newsapp.data.remote.ApiService
+import com.loc.newsapp.data.remote.dto.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
