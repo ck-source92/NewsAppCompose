@@ -1,6 +1,6 @@
 package com.loc.newsapp.di
 
-import android.app.Application
+import android.content.Context
 import com.loc.newsapp.data.LocalUserManagerImpl
 import com.loc.newsapp.data.remote.dto.ApiService
 import com.loc.newsapp.data.remote.repository.NewsRepositoryImpl
@@ -15,6 +15,7 @@ import com.loc.newsapp.domain.usecase.news.search.SearchNews
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -24,8 +25,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalUserManager(application: Application): LocalUserManager =
-        LocalUserManagerImpl(application)
+    fun provideLocalUserManager(@ApplicationContext context: Context): LocalUserManager =
+        LocalUserManagerImpl(context)
 
     @Provides
     @Singleton

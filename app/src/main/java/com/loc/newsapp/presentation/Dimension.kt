@@ -16,4 +16,6 @@ object Dimension {
     val ExtraSmallPadding2 = 6.dp
 
     val SmallIconSize = 11.dp
+
+    val ArticleImageHeigth = 248.dp
 }
