@@ -1,4 +1,4 @@
-package com.loc.newsapp.data.remote.dto
+package com.loc.newsapp.data.remote
 
 import com.loc.newsapp.data.remote.dto.NewsResponse
 import com.loc.newsapp.utils.Constant.API_KEY

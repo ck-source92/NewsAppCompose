@@ -1,15 +1,16 @@
-package com.loc.newsapp.data.remote.dto
+package com.loc.newsapp.data.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.loc.newsapp.domain.model.ArticlesItem
 
-class NewsPagingSource(
-    private val apiService: ApiService, private val sources: String
+class SearchPagingSource(
+    private val searchQuery: String,
+    private val newsApi: ApiService,
+    private val sources: String
 ) : PagingSource<Int, ArticlesItem>() {
 
     private var totalNewsCount = 0
-
     override fun getRefreshKey(state: PagingState<Int, ArticlesItem>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
@@ -20,7 +21,8 @@ class NewsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticlesItem> {
         val page = params.key ?: 1
         return try {
-            val newsResponse = apiService.getNews(page = page, sources = sources)
+            val newsResponse =
+                newsApi.searchNews(query = searchQuery, page = page, sources = sources)
             newsResponse.articles?.let {
                 totalNewsCount += it.size
                 val distinctArticles = newsResponse.articles.distinctBy { it.title }

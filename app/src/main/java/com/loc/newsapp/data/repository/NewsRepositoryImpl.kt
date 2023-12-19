@@ -1,11 +1,11 @@
-package com.loc.newsapp.data.remote.repository
+package com.loc.newsapp.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.loc.newsapp.data.remote.dto.ApiService
-import com.loc.newsapp.data.remote.dto.NewsPagingSource
-import com.loc.newsapp.data.remote.dto.SearchPagingSource
+import com.loc.newsapp.data.remote.ApiService
+import com.loc.newsapp.data.remote.NewsPagingSource
+import com.loc.newsapp.data.remote.SearchPagingSource
 import com.loc.newsapp.domain.model.ArticlesItem
 import com.loc.newsapp.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
