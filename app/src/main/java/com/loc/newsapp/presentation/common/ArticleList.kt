@@ -13,6 +13,25 @@ import androidx.paging.compose.LazyPagingItems
 import com.loc.newsapp.domain.model.ArticlesItem
 import com.loc.newsapp.presentation.Dimension
 
+
+@Composable
+fun ArticleList(
+    modifier: Modifier = Modifier,
+    articlesItem: List<ArticlesItem>,
+    onClick: (ArticlesItem) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(Dimension.MediumPadding1),
+        contentPadding = PaddingValues(all = Dimension.ExtraSmallPadding2)
+    ) {
+        items(count = articlesItem.size) { index ->
+            val articles = articlesItem[index]
+            ArticleCard(articles = articles, onClick = { onClick(articles) })
+        }
+    }
+}
+
 @Composable
 fun ArticleList(
     modifier: Modifier = Modifier,
@@ -22,7 +41,7 @@ fun ArticleList(
     val handlePagingResult = handlePagingResult(articlesItem = articlesItem)
     if (handlePagingResult) {
         LazyColumn(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(Dimension.MediumPadding1),
             contentPadding = PaddingValues(all = Dimension.ExtraSmallPadding2)
         ) {
