@@ -2,11 +2,12 @@ package com.loc.newsapp.domain.usecase.news
 
 import com.loc.newsapp.data.local.NewsDao
 import com.loc.newsapp.domain.model.ArticlesItem
+import com.loc.newsapp.domain.repository.NewsRepository
 
 class DeleteArticle(
-    private val newsDao: NewsDao
+    private val newsRepository: NewsRepository
 ) {
     suspend operator fun invoke(articlesItem: ArticlesItem) {
-        newsDao.delete(articlesItem)
+        newsRepository.deleteArticles(articlesItem)
     }
 }
